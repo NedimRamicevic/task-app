@@ -1,10 +1,14 @@
 import React, {useState} from 'react';
 
-export function NewTask(handleChange, handleSubmit,newTask){
+export default function NewTask(handleChange, handleSubmit,newTask){
 
     const [showBtn, setShowBtn] = useState(false);
-    const showBtnFun = () => {
-        setShowBtn(!showBtn)
+    const showBtnFun = ({target}) => {
+        const value = target.value;
+        if (value !== "") {
+            setShowBtn(true)
+        }
+        else setShowBtn(false)
     }
     return(
         <div>

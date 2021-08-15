@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import NewTask from './newTask'
 
 export default function Task(){
     const [allTasks, setAllTasks] = useState([])
@@ -14,9 +15,9 @@ export default function Task(){
                 id : Date.now() 
                 }
             }   
-        )
+        )}
 
-    const handleSubmit = (event){
+    const handleSubmit = (event) => {
         if(!newTask.title) return;
         setAllTasks(
             (prev) => {
@@ -27,5 +28,24 @@ export default function Task(){
             {}
         )
     }
-    }
+    
+
+    return(
+        <div className = "task-card">
+            <NewTask handleChange = {handleChange} handleSubmit = {handleSubmit} newTask = {newTask}/>
+            <ul>
+            {
+                allTasks.map(
+                    (value , id) => {
+                        return(
+                            <li id = {id}>
+                                {value}
+                            </li>
+                        )
+                    }
+                )
+            }
+            </ul>
+        </div>
+    )
 }
