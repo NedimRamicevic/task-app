@@ -1,5 +1,6 @@
 import './App.css';
 import ColorPicker from './colorPicker'
+import Task from './task'
 function App() {
   return (
     <div className="App">
@@ -7,7 +8,7 @@ function App() {
       <ColorPicker/>
       </div>
       <div>
-      <ColorPicker/>
+      <Task/>
       </div>
       <div>
       <ColorPicker/>
